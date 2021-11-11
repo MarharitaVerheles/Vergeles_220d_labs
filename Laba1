@@ -1,0 +1,139 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+class Money {
+private:
+    double A;
+    double B;
+    double A1;
+    double B1;
+    
+public:
+    /*
+    Money() {} //конструктор без аргументов
+    Money(double valueA, double valueA1, double valueB1) { //конструктор инициализации
+        A=valueA;
+        B=valueB;
+        a1=valueA1;
+        b1=valueB1;
+    }
+    Money(const Money &other) { /конструктор копирования
+        this->A=other.A;
+        this->B=other.B;
+        this->A1=other.A1;
+        this->B1=other.B1;
+    }
+    */
+    /*
+    Money() { //конструктор с использованием списка иннициализауции
+        A=0;
+        B=0;
+        A1=0;
+        B1=0;
+    }
+*/
+/*
+    ~Money(){} //деструктор
+*/
+    void SetA(double valueA) {
+        A=valueA;
+    }
+    void SetB(double valueB) {
+        B=valueB;
+    }
+    void SetA1(double valueA1) {
+        A1=valueA1;
+    }
+    void SetB1(double valueB1) {
+        B1=valueB1;
+    }
+    
+public:
+    /*
+    double GetA()const { //константый геттер
+        return A;
+    }
+    */
+    double GetA() {
+        return A;
+    }
+    double GetB() {
+        return B;
+    }
+    double GetA1() {
+        return A1;
+    }
+    double GetB1() {
+        return B1;
+    }
+    
+public:
+    double Init() 
+    {
+        B=B/100;
+        A=A+B;
+        B1=B1/100;
+        A1=A1+B1;
+    }
+public:
+    void sum() 
+    {
+        cout<<"rez sloj:"<< endl;
+        cout<<A+A1<< endl;
+    }
+    void min() 
+    {
+        cout<<"rez minus:"<< endl;
+        if(A1>A)
+        {
+            cout<<A1-A<< endl;
+        }
+        else
+        {
+            cout<<A-A1<<endl;
+        }
+    }
+    void del() 
+    {
+        cout<<"rez del"<< endl;
+        cout<<(A+A1)/2.5<< endl;
+    }
+    void sravn() 
+    {
+        if(A1>A)
+        {
+            cout<<"Max: "<<A1<< endl;
+        }
+        else if(A>A1)
+        {
+            cout<<"Max: "<<A<< endl;
+        }
+        else
+        {
+            cout<<"znach ravni "<<endl;
+        }
+    }
+};
+int main()
+{
+    //const Money object(object valueA,valueB,valueA1,valueB1); - константный объект класса
+    Money object;
+    double valueA,valueB,valueA1,valueB1;
+    cin >> valueA >> valueB >> valueA1 >> valueB1;
+    object.SetA(valueA);
+    object.SetB(valueB);
+    object.SetA1(valueA1);
+    object.SetB1(valueB1);
+    object.Init();
+    
+    cout << "a: " << object.GetA() << endl;
+    cout << "b: " << object.GetB() << endl;
+       cout << "a1: " << object.GetA1() << endl;
+    cout << "b1: " << object.GetB1() << endl;
+    object.sum();
+    object.min();
+    object.del();
+    object.sravn();
+    
+    return 0;
+}
